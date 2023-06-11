@@ -14,7 +14,8 @@ class RentalFactoryTest {
     @Test
     public void test(){
         Rental rental = RentalFactory.createRental(122,12,123,"2023-04-04","2023-05-30",42750.0);
-        System.out.println(rental.toString());
+        assert rental != null;
+        System.out.println(rental);
         assertNotNull(rental);
     }
 }
