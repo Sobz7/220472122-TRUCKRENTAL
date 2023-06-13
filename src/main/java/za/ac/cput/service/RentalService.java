@@ -7,7 +7,6 @@ package za.ac.cput.service;
 import za.ac.cput.domain.Rental;
 
 import java.util.Set;
-
 public interface RentalService extends IService<Rental, String> {
     Rental create(Rental rental);
 

@@ -57,6 +57,11 @@ public class ReturnTruckRepository implements IReturnTruckRepository {
     }
 
     @Override
+    public boolean delete(String s) {
+        return false;
+    }
+
+    @Override
     public boolean delete() {
         return false;
     }

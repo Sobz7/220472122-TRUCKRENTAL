@@ -17,7 +17,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
 public class PaymentServiceTest {
-
     private static PaymentRepository service = PaymentRepository.getRepository();
     private static Payment payment = PaymentFactory.createPayment(123,"EFT",750, LocalDate.parse("2023-04-04"));
 

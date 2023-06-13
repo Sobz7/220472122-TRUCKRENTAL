@@ -12,7 +12,6 @@ import za.ac.cput.factory.RentalFactory;
 import za.ac.cput.repository.RentalRepository;
 
 import java.time.LocalDate;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)

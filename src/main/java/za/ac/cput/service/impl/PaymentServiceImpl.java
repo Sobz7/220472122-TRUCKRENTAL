@@ -12,7 +12,6 @@ import java.util.Set;
 
 public abstract class PaymentServiceImpl implements PaymentService {
 
-
     private static PaymentServiceImpl  service = null;
 
     private static PaymentRepository repository = null;
