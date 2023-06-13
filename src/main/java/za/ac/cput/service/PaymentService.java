@@ -1,3 +1,6 @@
+// Payment Service Class.java
+// Author: Sobantu Malotana (220472122)
+// Date: 07 June 2023
 package za.ac.cput.service;
 
 import za.ac.cput.domain.Payment;

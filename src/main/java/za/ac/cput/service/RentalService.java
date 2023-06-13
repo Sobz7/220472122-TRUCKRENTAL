@@ -1,7 +1,10 @@
+// Rental Service Class.java
+// Author: Sobantu Malotana (220472122)
+// Date: 07 June 2023
+
 package za.ac.cput.service;
 
 import za.ac.cput.domain.Rental;
-import za.ac.cput.repository.IRepository;
 
 import java.util.Set;
 
