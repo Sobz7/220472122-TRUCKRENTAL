@@ -23,14 +23,14 @@ class RentalRepositoryTest {
     private static Rental rental = RentalFactory.createRental(122,12,123,"2023-04-04","2023-05-30",42750.0);
 
     @Test
-    void a_create() {
+    void a_create(Integer rentalId) {
         Rental created = repository.create(rental);
         assertNotNull(rental.getRentalId(rentalId));
         System.out.println("Create : "+ created);
     }
 
     @Test
-    void b_read() {
+    void b_read(Integer rentalId) {
         Rental read = repository.read((Integer) rental.getRentalId(rentalId));
         assertNotNull(read);
         System.out.println("Read : "+ read);
@@ -46,7 +46,7 @@ class RentalRepositoryTest {
     }
 
     @Test
-    void e_delete() {
+    void e_delete(Integer rentalId) {
         boolean success = repository.delete((Integer) rental.getRentalId(rentalId));
         assertTrue(success);
         System.out.println("Deleted :"+ success);
