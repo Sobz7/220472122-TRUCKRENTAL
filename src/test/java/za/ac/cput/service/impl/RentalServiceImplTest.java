@@ -3,6 +3,7 @@ package za.ac.cput.service.impl;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Rental;
 import za.ac.cput.factory.RentalFactory;
 
@@ -10,6 +11,7 @@ import za.ac.cput.factory.RentalFactory;
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class RentalServiceImplTest {
 
@@ -26,7 +28,7 @@ class RentalServiceImplTest {
     @Test
     void b_read() {
         assert rental != null;
-        Rental read1 = service.read((Integer) rental.getRentalId(rentalId));
+        Rental read1 = service.read((Integer) rental.getRentalId());
         assertNotNull(read1);
         System.out.println("Read : "+ read1);
     }
@@ -42,7 +44,7 @@ class RentalServiceImplTest {
 
     @Test
     void e_delete() {
-        boolean success = service.delete((Integer) (rental != null ? rental.getRentalId(rentalId) : -1));
+        boolean success = service.delete((Integer) (rental != null ? rental.getRentalId() : -1));
         assertTrue(success);
         System.out.println("Deleted :"+ success);
     }

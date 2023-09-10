@@ -25,13 +25,13 @@ class RentalRepositoryTest {
     @Test
     void a_create(Integer rentalId) {
         Rental created = repository.create(rental);
-        assertNotNull(rental.getRentalId(rentalId));
+        assertNotNull(rental.getRentalId());
         System.out.println("Create : "+ created);
     }
 
     @Test
     void b_read(Integer rentalId) {
-        Rental read = repository.read((Integer) rental.getRentalId(rentalId));
+        Rental read = repository.read((Integer) rental.getRentalId());
         assertNotNull(read);
         System.out.println("Read : "+ read);
     }
@@ -47,7 +47,7 @@ class RentalRepositoryTest {
 
     @Test
     void e_delete(Integer rentalId) {
-        boolean success = repository.delete((Integer) rental.getRentalId(rentalId));
+        boolean success = repository.delete((Integer) rental.getRentalId());
         assertTrue(success);
         System.out.println("Deleted :"+ success);
     }

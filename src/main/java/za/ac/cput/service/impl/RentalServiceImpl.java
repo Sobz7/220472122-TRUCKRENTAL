@@ -8,7 +8,7 @@ import za.ac.cput.repository.impl.RentalRepository;
 import za.ac.cput.service.RentalService;
 
 import java.util.Set;
-@Repository
+@Service
 public class RentalServiceImpl implements RentalService {
 
     private static RentalServiceImpl service = null;

@@ -4,18 +4,19 @@
 
 package za.ac.cput.repository.impl;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Rental;
 import za.ac.cput.repository.IRentalRepository;
 
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
-
+@Repository
 public abstract class RentalRepository implements IRentalRepository {
     public static RentalRepository repository = null;
 
     private Set<Rental> rentalDB = null;
-    private Integer rentalId;
 
     public RentalRepository() {
         rentalDB = new HashSet<Rental>();
@@ -59,7 +60,7 @@ public abstract class RentalRepository implements IRentalRepository {
     @Override
     public Rental read(int rentalId) {
         for (Rental e : rentalDB) {
-            int eRentalId = (int) e.getRentalId(rentalId);
+            int eRentalId = (int) e.getRentalId();
             {
                 return e;
             }
@@ -69,7 +70,7 @@ public abstract class RentalRepository implements IRentalRepository {
 
     @Override
     public Rental update(Rental rental) {
-        Rental oldRental = read((Integer) rental.getRentalId(rentalId));
+        Rental oldRental = read((Integer) rental.getRentalId());
         if (oldRental != null) {
             rentalDB.remove(oldRental);
             rentalDB.add(rental);
