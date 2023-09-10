@@ -7,15 +7,9 @@ import za.ac.cput.domain.Location;
 
 import java.util.Set;
 
-public interface ILocationRepository extends IRepository<Location ,String> {
-    Location read(String locationId);
+import org.springframework.data.jpa.repository.JpaRepository;
 
-    default boolean delete(String locationId) {
-        return false;
-    }
-
-    public Set<Location> getAll();
-
+public interface ILocationRepository extends JpaRepository<Location ,String> {
 }
 
 

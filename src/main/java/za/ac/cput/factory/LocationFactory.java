@@ -12,10 +12,10 @@ public class LocationFactory {
         if(Helper.isNullorEmpty(String.valueOf(locationId)) || Helper.isNullorEmpty(locationName))
         return null;
 
-        return new Location.Builder()
-             .setLocationId(locationId)
-             .setLocationName(locationName)
-             .setAddress(address)
+        return new Location().builder()
+             .locationId(locationId)
+             .locationName(locationName)
+             .address(address)
              .build();
     }
 }

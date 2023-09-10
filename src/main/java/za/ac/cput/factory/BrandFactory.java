@@ -13,12 +13,11 @@ public class BrandFactory {
         if(Helper.isNullorEmpty(String.valueOf(brandId)) || Helper.isNullorEmpty(brandName))
             return null;
 
-        return new Brand.Builder()
-                .setBrandId(brandId)
-                .setBrandName(brandName)
-                .setModel(model)
-                .setColor(color)
+        return new Brand().builder()
+                .brandId(brandId)
+                .brandName(brandName)
+                .model(model)
+                .color(color)
                 .build();
-
     }
 }
