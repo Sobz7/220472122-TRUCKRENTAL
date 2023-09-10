@@ -1,53 +1,52 @@
 package za.ac.cput.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+
 import za.ac.cput.domain.Location;
+import za.ac.cput.factory.LocationFactory;
 import za.ac.cput.repository.ILocationRepository;
-//import za.ac.cput.repository.impl.LocationRepository;
 import za.ac.cput.service.LocationService;
 
-import java.util.Set;
-import java.util.stream.Collectors;
+public class LocationServiceImpl implements LocationService{
+    private ILocationRepository LocationRepository;
 
-@Service
-public class LocationServiceImpl implements LocationService {
-
-    private static LocationService service = null;
+    
     @Autowired
-
-    private ILocationRepository repository;
-
-
-
-
-@Override
-    public Location create (Location locationId){
-    return this.repository.save(locationId);
-    }
-
-
-    @Override
-    public Location read(int locationId) {
-        return repository.findBylocationId(locationId);
-    }
-
-   @Override
-    public Location update(Location location) {
-        if (this.repository.existsById(location.getLocationId()))
-            return this.repository.save(location);
-        return null;
+    public LocationServiceImpl(ILocationRepository LocationRepository) 
+    {
+        this.LocationRepository = LocationRepository;
     }
 
     @Override
-
-    public void delete (int locationId){
-         this.repository.deleteById(locationId);
-
+    public Location create(Location Location) {
+        return LocationRepository.save(
+            LocationFactory.createLocation(
+                Location.getLocationId(), 
+                Location.getLocationName(), 
+                Location.getAddress())
+        );
     }
 
-
-    public Set<Brand> getAll(){return this.repository.findAll().stream().collect(Collectors.toSet());
+    @Override
+    public Location read(String id) {
+        return LocationRepository.findById(id).get();
     }
 
+    @Override
+    public Location update(Location Location) {
+        return LocationRepository.save(Location);
+    }
+
+    @Override
+    public Boolean delete(String id) {
+        LocationRepository.delete(read(id));
+        return true;
+    }
+
+    @Override
+    public List<Location> getAll() {
+        return LocationRepository.findAll();
+    }
 }

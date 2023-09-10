@@ -1,11 +1,9 @@
 package za.ac.cput.service;
 
+import java.util.List;
+
 import za.ac.cput.domain.Brand;
 
-import java.util.List;
-import java.util.Set;
-
-public interface BrandService extends  IService<Brand, String>{
-//create, read, update, delete
- Set<Brand> getAll();
+public interface BrandService extends IService<Brand, String>{
+    List<Brand> getAll();
 }
