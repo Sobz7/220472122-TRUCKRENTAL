@@ -1,3 +1,4 @@
+/*
 package za.ac.cput.service.impl;
 import za.ac.cput.domain.Category;
 import za.ac.cput.repository.impl.CategoryRepository;
@@ -49,3 +50,4 @@ public class CategoryServiceImpl implements CategoryService {
         return repository.getAll();
     }
 }
+*/

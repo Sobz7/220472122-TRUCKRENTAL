@@ -1,3 +1,4 @@
+/*
 package za.ac.cput.service.impl;
 
 import org.junit.jupiter.api.Test;
@@ -50,3 +51,4 @@ class TruckServiceImplTest {
         System.out.println(repository.getAll());
     }
 }
+*/

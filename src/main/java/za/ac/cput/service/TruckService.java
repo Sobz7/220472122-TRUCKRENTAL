@@ -1,14 +1,21 @@
 package za.ac.cput.service;
-import  java.util.Set;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Truck;
-public interface TruckService {
-    Truck create(Truck truck);
+import za.ac.cput.repository.TruckRepository;
 
-    Truck read(String truckId);
+import java.util.HashSet;
+import java.util.Set;
 
-   Truck update(Truck truck);
+@Service
+public class TruckService {
+    private TruckRepository truckRepository;
+    @Autowired
+    public TruckService(TruckRepository truckRepository){this.truckRepository = truckRepository;}
 
-    boolean delete (String id);
-    Set<Truck>getAll();
-
+    public Truck save(Truck truck){return truckRepository.save(truck);}
+    public Truck getById(String id){return truckRepository.findById(id).orElse(null);}
+    public Truck update(Truck updateTruck){return truckRepository.save(updateTruck);}
+    public void deleteByID(String id){truckRepository.deleteById(id);}
+    public Set<Truck> getAll(){return new HashSet<>(truckRepository.findAll());}
 }

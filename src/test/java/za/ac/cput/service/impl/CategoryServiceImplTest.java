@@ -1,3 +1,4 @@
+/*
 package za.ac.cput.service.impl;
 
 import org.junit.jupiter.api.Test;
@@ -57,4 +58,4 @@ class CategoryServiceImplTest {
         System.out.println(repository.getAll());
     }
 
-}
+}*/

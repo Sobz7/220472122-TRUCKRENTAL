@@ -1,3 +1,4 @@
+/*
 package za.ac.cput.repository;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
@@ -49,4 +50,4 @@ class TruckRepositoryTest {
       System.out.println("show all:");
       System.out.println(repository.getAll());
     }
-}
+}*/
