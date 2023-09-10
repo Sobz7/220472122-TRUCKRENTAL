@@ -5,12 +5,15 @@
 
 package za.ac.cput.domain;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import java.time.LocalDate;
 @EntityScan
 public class Payment {
-
+@Id
+@GeneratedValue
     private int paymentId;
     private String paymentType;
     private double paymentAmount;

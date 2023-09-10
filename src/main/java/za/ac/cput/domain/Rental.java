@@ -5,14 +5,17 @@
 
 package za.ac.cput.domain;
 
+import jakarta.persistence.GeneratedValue;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
 @EntityScan
 public class Rental {
-
+@Id
+@GeneratedValue
     private int rentalId;
     private int customerId;
     private  int truckId;
