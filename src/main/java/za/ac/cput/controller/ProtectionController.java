@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+/*package za.ac.cput.controller;
+=======
 package za.ac.cput.controller;/*package za.ac.cput.controller;
+>>>>>>> 76685f55c2dfca669fefd840bee826eb1458435e
 
 import org.junit.jupiter.api.Disabled;
 import org.springframework.beans.factory.annotation.Autowired;

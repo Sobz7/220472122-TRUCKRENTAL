@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 public class Location {
+
     private int locationId;
 
     private String locationName;

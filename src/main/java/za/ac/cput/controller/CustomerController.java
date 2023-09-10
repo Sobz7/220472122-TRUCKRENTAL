@@ -4,6 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.Customer;
 import za.ac.cput.factory.CustomerFactory;
+<<<<<<< HEAD
+
+import za.ac.cput.service.CustomerService;
+=======
+>>>>>>> 76685f55c2dfca669fefd840bee826eb1458435e
 import za.ac.cput.service.impl.CustomerServiceImpl;
 
 import java.util.Set;

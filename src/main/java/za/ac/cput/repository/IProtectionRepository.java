@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+/**
+=======
 
+>>>>>>> 76685f55c2dfca669fefd840bee826eb1458435e
 //Interface Protection Repository
 // Interface
 // Author: Jordy Meye (220072841)
@@ -25,3 +29,4 @@ public interface IProtectionRepository extends IRepository<Protection, String>{
 
     Collection<Object> findAll();
 }
+*/

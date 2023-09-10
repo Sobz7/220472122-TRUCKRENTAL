@@ -1,8 +1,7 @@
 package za.ac.cput.repository;
-/*Ayanda Phumzile Khoza
- Student Number 218057172
- */
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.Location;
 
 import java.util.Set;

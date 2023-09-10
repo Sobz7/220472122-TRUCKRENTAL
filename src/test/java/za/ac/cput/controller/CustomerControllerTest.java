@@ -9,21 +9,33 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+<<<<<<< HEAD
+
+=======
+>>>>>>> 76685f55c2dfca669fefd840bee826eb1458435e
 import org.springframework.http.*;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 import za.ac.cput.domain.Customer;
 import za.ac.cput.factory.CustomerFactory;
 
+<<<<<<< HEAD
+import static org.junit.jupiter.api.Assertions.*;
+=======
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+>>>>>>> 76685f55c2dfca669fefd840bee826eb1458435e
 @ExtendWith(SpringExtension.class)
 @RunWith(SpringRunner.class)
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest( webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class CustomerControllerTest {
+<<<<<<< HEAD
+    private static final Customer customer = CustomerFactory.createCustomer(  "raymond", "walker" , "ray@gmail.com" , "observatory", "1687532");
+=======
     private static final Customer customer = CustomerFactory.createCustomer(  "emily", "smith" , "emily@gmail.com" , "rondebosch", "756983");
+>>>>>>> 76685f55c2dfca669fefd840bee826eb1458435e
 
     @Autowired
 private TestRestTemplate restTemplate;
@@ -48,8 +60,13 @@ private final String basedURL = "http://localhost:8080/customer";
         String url = basedURL + "/read/" + customer.getCustomerId(); // Make sure the customer ID is correct here
         System.out.println("URL: " + url);
         ResponseEntity<Customer> response = restTemplate.getForEntity(url, Customer.class);
+<<<<<<< HEAD
+       // assertNotNull(response.getBody());
+        //assertEquals(customer.getCustomerId(), response.getBody().getCustomerId());
+=======
        assertNotNull(response.getBody());
         assertEquals(customer.getCustomerId(), response.getBody().getCustomerId());
+>>>>>>> 76685f55c2dfca669fefd840bee826eb1458435e
         System.out.println(response.getBody());
     }
 

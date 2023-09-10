@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+/*
+=======
 package za.ac.cput.repository.impl;/*
+>>>>>>> 76685f55c2dfca669fefd840bee826eb1458435e
 //Customer Repository .java
 // Class for the Customer
 // Author: Jordy Meye (220072841)

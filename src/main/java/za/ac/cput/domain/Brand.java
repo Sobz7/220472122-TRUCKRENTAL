@@ -1,14 +1,5 @@
 package za.ac.cput.domain;
-/*Brand Entity
-Author Ayanda Phumzile Khoza
-Student Number 218057172
- */
-
-import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Getter
 @NoArgsConstructor

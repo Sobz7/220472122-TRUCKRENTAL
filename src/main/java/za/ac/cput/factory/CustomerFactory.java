@@ -5,9 +5,12 @@
 
 // Customer Factory class
 
+<<<<<<< HEAD
+=======
 //Jordy Meye
 //220072841
 
+>>>>>>> 76685f55c2dfca669fefd840bee826eb1458435e
 package za.ac.cput.factory;
 
 import za.ac.cput.domain.Customer;

@@ -8,6 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Customer;
 import za.ac.cput.repository.ICustomerRepository;
+<<<<<<< HEAD
+//import za.ac.cput.repository.impl.CustomerRepository;
+=======
+>>>>>>> 76685f55c2dfca669fefd840bee826eb1458435e
 import za.ac.cput.service.CustomerService;
 
 import java.util.Set;

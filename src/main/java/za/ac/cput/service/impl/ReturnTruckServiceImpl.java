@@ -1,6 +1,8 @@
 //ReturnTruck Service Interface
 //Author: Chenique Jacobs (220388172)
 //Date: 13/06/2023
+
+/*
 package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +40,19 @@ public class ReturnTruckServiceImpl implements ReturnTruckService {
     }
 
     @Override
+<<<<<<< HEAD
+    public ReturnTruck update() {
+        return null;
+    }
+
+
+    public ReturnTruck update(ReturnTruck returnTruck) {
+        ReturnTruck updated = repository.update(returnTruck);
+        return updated;
+=======
     public void delete(String returnTruckId){
         this.repository.deleteById(returnTruckId);
+>>>>>>> 76685f55c2dfca669fefd840bee826eb1458435e
     }
 
     public Set<ReturnTruck> getAll(){
@@ -49,3 +62,4 @@ public class ReturnTruckServiceImpl implements ReturnTruckService {
 
 
 }
+*/
