@@ -1,3 +1,4 @@
+/*
 package za.ac.cput.service.impl;
 
 
@@ -52,3 +53,4 @@ public class TruckServiceImpl implements TruckService {
         return repository.getAll();
     }
 }
+*/

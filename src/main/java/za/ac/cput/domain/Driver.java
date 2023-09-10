@@ -4,21 +4,27 @@ Driver.java
 @Author: Siyakha Manisi (219239657)
 09 April 2023
 * */
+
 package za.ac.cput.domain;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 import java.util.Objects;
 
+@Entity
 public class Driver {
-    String driverID;
-    String name;
-    String surname;
-    String email;
-    int idNumber;
-    String licenseNo;
-    int telephone;
-    int rentalID;
+    @Id
+    private String driverID;
+    private String name;
+    private String surname;
+    private String email;
+    private int idNumber;
+    private String licenseNo;
+    private int telephone;
+    private int rentalID;
 
-    private Driver() {
+    protected Driver() {
 
     }
 
@@ -54,8 +60,8 @@ public class Driver {
         return idNumber;
     }
 
-    public String getLicenseNo() {
-        return licenseNo;
+    public int getLicenseNo() {
+        return Integer.parseInt(licenseNo);
     }
 
 

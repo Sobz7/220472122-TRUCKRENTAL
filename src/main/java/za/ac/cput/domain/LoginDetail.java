@@ -4,13 +4,23 @@ LoginDetail.java
 @Author: Siyakha Manisi (219239657)
 09 April 2023
 * */
+
 package za.ac.cput.domain;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 import java.util.Objects;
 
+@Entity
 public class LoginDetail {
-    String username;
-    String password;
+    @Id
+    private String username;
+    private String password;
+
+    protected LoginDetail(){
+
+    }
 
     private LoginDetail(Builder builder)
     {

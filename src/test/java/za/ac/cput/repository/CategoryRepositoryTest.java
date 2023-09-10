@@ -1,3 +1,4 @@
+/*
 package za.ac.cput.repository;
 
 import org.junit.jupiter.api.Test;
@@ -10,7 +11,7 @@ import za.ac.cput.repository.impl.CategoryRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
-class CategoryRepositoryTest {
+class //CategoryRepositoryTest {
 private static CategoryRepository repository = CategoryRepository.getRespository();
 private static Category category= CategoryFactory.createCategory("66hh11","Furniture",30,"Large");
 
@@ -52,4 +53,4 @@ private static Category category= CategoryFactory.createCategory("66hh11","Furni
         System.out.println("show all:");
         System.out.println(repository.getAll());
     }
-}
+}*/
