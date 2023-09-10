@@ -40,8 +40,9 @@ public class LocationServiceImpl implements LocationService{
     }
 
     @Override
-    public void delete(String id) {
+    public Boolean delete(String id) {
         LocationRepository.delete(read(id));
+        return true;
     }
 
     @Override

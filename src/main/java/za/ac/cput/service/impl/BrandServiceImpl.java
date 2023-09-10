@@ -13,7 +13,7 @@ import za.ac.cput.service.IService;
 public class BrandServiceImpl implements BrandService {
 
     private IBrandRepository brandRepository;
-   
+    
     @Autowired
     public BrandServiceImpl(IBrandRepository brandRepository) 
     {
@@ -42,8 +42,9 @@ public class BrandServiceImpl implements BrandService {
     }
 
     @Override
-    public void delete(String id) {
+    public Boolean delete(String id) {
         brandRepository.delete(read(id));
+        return true;
     }
 
     @Override
