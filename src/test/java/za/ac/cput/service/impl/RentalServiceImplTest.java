@@ -11,7 +11,6 @@ import za.ac.cput.factory.RentalFactory;
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class RentalServiceImplTest {
 

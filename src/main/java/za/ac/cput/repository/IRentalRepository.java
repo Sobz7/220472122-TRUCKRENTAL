@@ -4,6 +4,7 @@
 
 package za.ac.cput.repository;
 
+
 import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.Rental;
 

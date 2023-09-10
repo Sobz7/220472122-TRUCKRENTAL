@@ -17,4 +17,5 @@ public interface IPaymentRepository extends IRepository<Payment, String> {
         return false;
     }
     public Set<Payment> getAll();
+
 }

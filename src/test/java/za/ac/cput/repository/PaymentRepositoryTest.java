@@ -15,6 +15,7 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class PaymentRepositoryTest {
     private static PaymentRepository repository = PaymentRepository.getRepository();

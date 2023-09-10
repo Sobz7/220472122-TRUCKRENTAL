@@ -97,5 +97,6 @@ public abstract class RentalRepository implements IRentalRepository {
     public boolean existsById(Integer rentalId){
      return true;
     }
+
 }
 

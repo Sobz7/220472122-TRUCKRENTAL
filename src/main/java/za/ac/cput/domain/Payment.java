@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import java.time.LocalDate;
+
 @EntityScan
 public class Payment {
 @Id

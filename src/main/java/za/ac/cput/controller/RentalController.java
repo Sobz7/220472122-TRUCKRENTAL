@@ -16,7 +16,6 @@ import static org.springframework.http.HttpStatus.FOUND;
 @RestController
 @RequestMapping(path = "api/v1/truckrental")
 public class RentalController{
-
     private final RentalRepository repository;
     private org.springframework.http.HttpStatusCode HttpStatusCode;
 

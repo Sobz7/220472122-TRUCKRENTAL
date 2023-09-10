@@ -75,6 +75,7 @@ public abstract class PaymentRepository implements IPaymentRepository {
         paymentDB.remove(paymentToDelete);
         return true;
     }
+
     @Override
     public Set<Payment> getAll() {
         return paymentDB;

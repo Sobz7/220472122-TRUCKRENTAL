@@ -8,7 +8,6 @@ import za.ac.cput.domain.Payment;
 import za.ac.cput.util.Helper;
 
 import java.time.LocalDate;
-
 public class PaymentFactory {
 
     public static Payment createPayment(int paymentId, String paymentType, double paymentAmount, LocalDate paymentDate){

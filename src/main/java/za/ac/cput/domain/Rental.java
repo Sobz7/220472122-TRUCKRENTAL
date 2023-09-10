@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
+
 @EntityScan
 public class Rental {
 @Id

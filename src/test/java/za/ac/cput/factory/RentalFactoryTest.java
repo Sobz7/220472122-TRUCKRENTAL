@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.Rental;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 class RentalFactoryTest {
     @Test
     public void test(){

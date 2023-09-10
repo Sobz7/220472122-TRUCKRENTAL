@@ -18,5 +18,4 @@ class PaymentFactoryTest {
         System.out.println(payment.toString());
         assertNotNull(payment);
     }
-
 }

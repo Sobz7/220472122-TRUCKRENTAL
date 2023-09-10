@@ -8,7 +8,6 @@ import za.ac.cput.domain.Rental;
 import za.ac.cput.util.Helper;
 
 import java.time.LocalDate;
-
 public class RentalFactory {
 
     public static Rental createRental(int rentalId, int customerId, int truckId, String startDate, String endDate, double rentalCost) {
