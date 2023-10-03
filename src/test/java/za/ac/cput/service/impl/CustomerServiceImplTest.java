@@ -12,9 +12,8 @@ import za.ac.cput.factory.CustomerFactory;
 =======
 >>>>>>> 76685f55c2dfca669fefd840bee826eb1458435e
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest
 class CustomerServiceImplTest {
@@ -46,7 +45,7 @@ class CustomerServiceImplTest {
     void c_update() {
 
 
-        Customer updated = new Customer.Builder().copy(customer).setName("Burger").setSurname("Naidoo").setEmail("Kruben@outlook.com").setAddress("rondebosch").setLicenseNumber("zggzgzgz").build();
+        Customer updated = new Customer.Builder().copy(customer).setName("Burger").setSurname("Naidoo").setEmail("Kruben@outlook.com").setAddress("rondebosch").setPassword("78945612").build();
 
         updated = service.update(updated);
         assertNotNull(service.update(updated));
@@ -58,11 +57,10 @@ class CustomerServiceImplTest {
     void e_delete() {
 
         service.delete(customer.getCustomerId());
-        assertEquals(service.getAll().size(),0);
+        assertEquals(service.getAll().size(), 3);
         System.out.println(service.getAll());
 
     }
-
 
     @Test
     void d_getAll() {
