@@ -7,14 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Customer;
 import za.ac.cput.factory.CustomerFactory;
-<<<<<<< HEAD
 
-=======
->>>>>>> 76685f55c2dfca669fefd840bee826eb1458435e
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import java.util.Set;
 
+import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest
 class CustomerServiceImplTest {
@@ -46,28 +43,50 @@ class CustomerServiceImplTest {
     void c_update() {
 
 
-        Customer updated = new Customer.Builder().copy(customer).setName("Burger").setSurname("Naidoo").setEmail("Kruben@outlook.com").setAddress("rondebosch").setLicenseNumber("zggzgzgz").build();
+        Customer updated = new Customer.Builder().copy(customer).setName("Burger").setSurname("Naidoo").setEmail("Kruben@outlook.com").setAddress("rondebosch").setPassword("78945612").build();
 
         updated = service.update(updated);
         assertNotNull(service.update(updated));
-        System.out.println(customer.getCustomerId()); //updated.getCustomerId());
+        System.out.println(updated); //updated.getCustomerId());
 
     }
+
+//    @Test
+//    void e_delete() {
+//
+//        service.delete(customer.getCustomerId());
+//        assertEquals(service.getAll().size(), 57);
+//        System.out.println(service.getAll());
+//
+//    }
 
     @Test
     void e_delete() {
+        // Create a new customer
+        Customer created = service.create(customer);
 
-        service.delete(customer.getCustomerId());
-        assertEquals(service.getAll().size(),0);
-        System.out.println(service.getAll());
+        // Delete the customer
+        service.delete(created.getCustomerId());
 
+        // Assert that the customer is deleted
+        assertNull(service.read(created.getCustomerId()));
     }
 
+//    @Test
+//    void d_getAll() {
+//        System.out.println("show all: ");
+//        System.out.println(service.getAll());
+//
+//    }
 
     @Test
     void d_getAll() {
-        System.out.println("show all: ");
-        System.out.println(service.getAll());
+        Set<Customer> customer = service.getAll();
 
+        assertNotNull(customer);
+        assertTrue(customer.size() > 0);
+        System.out.println(service.getAll());
+        // You can add more assertions as needed to check the retrieved customers.
     }
+
 }

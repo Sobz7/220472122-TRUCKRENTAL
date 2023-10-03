@@ -1,19 +1,24 @@
 package za.ac.cput.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+//import za.ac.cput.domain.Admin;
 import za.ac.cput.domain.Customer;
+
 import za.ac.cput.factory.CustomerFactory;
-<<<<<<< HEAD
 
 import za.ac.cput.service.CustomerService;
-=======
->>>>>>> 76685f55c2dfca669fefd840bee826eb1458435e
 import za.ac.cput.service.impl.CustomerServiceImpl;
 
+import java.util.List;
 import java.util.Set;
 
+@CrossOrigin("http://localhost:3000")
 @RestController
+
 @RequestMapping("/customer")
 public class CustomerController {
 
@@ -23,7 +28,7 @@ public class CustomerController {
 
     @PostMapping("/create")
     public Customer create(@RequestBody Customer customer) {
-        Customer newCustomer = CustomerFactory.createCustomer(customer.getName(), customer.getSurname(), customer.getEmail(), customer.getAddress(), customer.getLicenseNumber());
+        Customer newCustomer = CustomerFactory.createCustomer(customer.getName(), customer.getSurname(), customer.getEmail(), customer.getAddress(), customer.getPassword());
         return customerService.create(newCustomer);
     }
 
@@ -38,10 +43,26 @@ public class CustomerController {
     }
 
     @DeleteMapping("/delete/{id}")
-   // public boolean delete(@PathVariable .Scalar.String id){ customerService.delete(id);}
+    public boolean delete(@PathVariable String id) {
+        customerService.delete(id);
+        return true;
+    }
 
     @GetMapping("/getAll")
-    public Set<Customer> getAll() {
-        return customerService.getAll();
+    public ResponseEntity<Set<Customer>> getAll() {
+        Set<Customer> customers = customerService.getAll();
+        return new ResponseEntity<>(customerService.getAll(), HttpStatus.FOUND);
     }
 }
+
+//    @GetMapping("/getCustomers")
+//    public ResponseEntity<List<Customer>> getCustomers(){
+//        return new ResponseEntity<>(customerService.getCustomers(), HttpStatus.FOUND);
+//    }
+
+
+//    @GetMapping("/customer/{id}")
+//    public Customer getCustomerById(@PathVariable Long id){
+//        return customerService.getCustomerById(id);
+//    }
+

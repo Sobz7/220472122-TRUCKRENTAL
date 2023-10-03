@@ -13,15 +13,15 @@ import java.io.Serializable;
 @Entity
 public class Customer implements Serializable {
 
-@Id
+    @Id
     private String customerId;
     private String name;
     private String surname;
     private String email;
     private String address;
-    private String licenseNumber;
+    private String password;
 
-    protected Customer(){}
+    public Customer(){}
 
 
     public Customer(Builder builder){
@@ -32,7 +32,7 @@ public class Customer implements Serializable {
         this.surname= builder.surname;
         this.email=builder.email;
         this.address=builder.address;
-        this.licenseNumber=builder.licenseNumber;
+        this.password=builder.password;
     }
 
     public String getCustomerId() {
@@ -75,12 +75,12 @@ public class Customer implements Serializable {
         this.address = address;
     }
 
-    public String getLicenseNumber() {
-        return licenseNumber;
+    public String getPassword() {
+        return password;
     }
 
-    public void setLicenseNumber(String licenseNumber) {
-        this.licenseNumber = licenseNumber;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 
@@ -92,7 +92,7 @@ public class Customer implements Serializable {
                 ", surname='" + surname + '\'' +
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
-                ", licenseNumber='" + licenseNumber + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 
@@ -103,7 +103,7 @@ public class Customer implements Serializable {
         private String surname;
         private String email;
         private String address;
-        private String licenseNumber;
+        private String password;
 
 
         public Builder setCustomerId(String customerId) {
@@ -131,8 +131,8 @@ public class Customer implements Serializable {
             return this;
         }
 
-        public Builder setLicenseNumber(String licenseNumber) {
-            this.licenseNumber = licenseNumber;
+        public Builder setPassword(String password) {
+            this.password = password;
             return this;
         }
 
@@ -142,7 +142,7 @@ public class Customer implements Serializable {
             this.surname= customer.surname;
             this.email= customer.email;
             this.address= customer.address;
-            this.licenseNumber= customer.licenseNumber;
+            this.password= customer.password;
             return this;
         }
 

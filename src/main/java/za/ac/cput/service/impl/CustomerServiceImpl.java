@@ -7,18 +7,16 @@ package za.ac.cput.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Customer;
+
 import za.ac.cput.repository.ICustomerRepository;
-<<<<<<< HEAD
 //import za.ac.cput.repository.impl.CustomerRepository;
-=======
->>>>>>> 76685f55c2dfca669fefd840bee826eb1458435e
 import za.ac.cput.service.CustomerService;
 
+import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
-public class CustomerServiceImpl implements CustomerService {
+public class CustomerServiceImpl implements CustomerService{
 
     private static CustomerService service = null;
     @Autowired
@@ -28,18 +26,19 @@ public class CustomerServiceImpl implements CustomerService {
 
 
 
-@Override
-    public Customer create ( Customer customerId){
-    return this.repository.save(customerId);
+    @Override
+    public Customer create(Customer customerId){
+
+        return this.repository.save(customerId);
     }
 
 
     @Override
     public Customer read(String customerId) {
-        return repository.findByCustomerId(customerId);
+        return repository.findById(customerId).orElse(null);
     }
 
-   @Override
+    @Override
     public Customer update(Customer customer) {
         if (this.repository.existsById(customer.getCustomerId()))
             return this.repository.save(customer);
@@ -48,13 +47,18 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
 
-    public void delete ( String customerId){
-         this.repository.deleteById(customerId);
+    public void delete(String customerId){
+        this.repository.deleteById(customerId);
 
     }
 
-
-    public Set<Customer> getAll(){return this.repository.findAll().stream().collect(Collectors.toSet());
+    @Override
+    public Set<Customer> getAll(){
+        Iterable<Customer> customer = this.repository.findAll();
+        Set<Customer> customerSet = new HashSet<>();
+        customer.forEach(customerSet::add);
+        return customerSet;
     }
+
 
 }
