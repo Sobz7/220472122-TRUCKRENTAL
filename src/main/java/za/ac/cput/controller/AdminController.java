@@ -7,6 +7,7 @@ import za.ac.cput.factory.AdminFactory;
 import za.ac.cput.service.impl.AdminServiceImpl;
 import java.util.Set;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
