@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,50 +14,49 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import za.ac.cput.domain.Brand;
-import za.ac.cput.service.BrandService;
+import za.ac.cput.domain.Location;
+import za.ac.cput.service.LocationService;
 
 @RestController
-@RequestMapping("/brand")
-public class BrandController {
-    private final BrandService service;
+@RequestMapping("/location")
+public class LocationController {
+    private final LocationService service;
 
     @Autowired
-    public BrandController(BrandService service) {
+    public LocationController(LocationService service) {
         this.service = service;
     }
 
     @PostMapping("save")
-    public ResponseEntity<Brand> save(@RequestBody Brand brand)
+    public ResponseEntity<Location> save(@RequestBody Location Location)
     {
-        Brand brandRecord = null;
+        Location LocationRecord = null;
         try {
-            brandRecord = service.create(brandRecord);
+            LocationRecord = service.create(LocationRecord);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
-        return ResponseEntity.ok(brandRecord);
+        return ResponseEntity.ok(LocationRecord);
     }
 
-    @GetMapping("read/{brandId}")
-    public ResponseEntity<Brand> read(@PathVariable String brandId)
+    @GetMapping("read/{LocationId}")
+    public ResponseEntity<Location> read(@PathVariable String LocationId)
     {
-        Brand brandRecord = service.read(brandId);
-        return ResponseEntity.ok(brandRecord);
+        Location LocationRecord = service.read(LocationId);
+        return ResponseEntity.ok(LocationRecord);
     }
 
     @GetMapping("find-all")
-    public ResponseEntity<List<Brand>> findAll(@PathVariable String brandId)
+    public ResponseEntity<List<Location>> findAll(@PathVariable String LocationId)
     {
-        List<Brand> brandRecord = service.getAll();
-        return ResponseEntity.ok(brandRecord);
+        List<Location> LocationRecord = service.getAll();
+        return ResponseEntity.ok(LocationRecord);
     }
 
     @DeleteMapping("delete")
-    public ResponseEntity<Void> delete(@RequestBody Brand brand)
+    public ResponseEntity<Void> delete(@RequestBody Location Location)
     {
-        service.delete(String.valueOf(brand.getBrandId())); 
+        service.delete(String.valueOf(Location.getLocationId())); 
         return ResponseEntity.noContent().build();
     }
-
 }
