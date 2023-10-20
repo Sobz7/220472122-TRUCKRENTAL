@@ -12,11 +12,11 @@ import za.ac.cput.repository.ICustomerRepository;
 //import za.ac.cput.repository.impl.CustomerRepository;
 import za.ac.cput.service.CustomerService;
 
+import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
-public class CustomerServiceImpl implements CustomerService {
+public class CustomerServiceImpl implements CustomerService{
 
     private static CustomerService service = null;
     @Autowired
@@ -27,14 +27,15 @@ public class CustomerServiceImpl implements CustomerService {
 
 
     @Override
-    public Customer create ( Customer customerId){
+    public Customer create(Customer customerId){
+
         return this.repository.save(customerId);
     }
 
 
     @Override
     public Customer read(String customerId) {
-        return repository.findByCustomerId(customerId);
+        return repository.findById(customerId).orElse(null);
     }
 
     @Override
@@ -46,18 +47,17 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
 
-    public void delete ( String customerId){
+    public void delete(String customerId){
         this.repository.deleteById(customerId);
 
     }
 
-
-    public Set<Customer> getAll(){return this.repository.findAll().stream().collect(Collectors.toSet());
-    }
-
     @Override
-    public Customer findByEmail(String email){
-        return null;
+    public Set<Customer> getAll(){
+        Iterable<Customer> customer = this.repository.findAll();
+        Set<Customer> customerSet = new HashSet<>();
+        customer.forEach(customerSet::add);
+        return customerSet;
     }
 
 

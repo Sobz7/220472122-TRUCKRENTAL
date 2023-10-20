@@ -9,6 +9,8 @@ import za.ac.cput.domain.Customer;
 import za.ac.cput.factory.CustomerFactory;
 
 
+import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest
@@ -45,23 +47,46 @@ class CustomerServiceImplTest {
 
         updated = service.update(updated);
         assertNotNull(service.update(updated));
-        System.out.println(customer.getCustomerId()); //updated.getCustomerId());
+        System.out.println(updated); //updated.getCustomerId());
 
     }
+
+//    @Test
+//    void e_delete() {
+//
+//        service.delete(customer.getCustomerId());
+//        assertEquals(service.getAll().size(), 57);
+//        System.out.println(service.getAll());
+//
+//    }
 
     @Test
     void e_delete() {
+        // Create a new customer
+        Customer created = service.create(customer);
 
-        service.delete(customer.getCustomerId());
-        assertEquals(service.getAll().size(), 3);
-        System.out.println(service.getAll());
+        // Delete the customer
+        service.delete(created.getCustomerId());
 
+        // Assert that the customer is deleted
+        assertNull(service.read(created.getCustomerId()));
     }
+
+//    @Test
+//    void d_getAll() {
+//        System.out.println("show all: ");
+//        System.out.println(service.getAll());
+//
+//    }
 
     @Test
     void d_getAll() {
-        System.out.println("show all: ");
-        System.out.println(service.getAll());
+        Set<Customer> customer = service.getAll();
 
+        assertNotNull(customer);
+        assertTrue(customer.size() > 0);
+        System.out.println(service.getAll());
+        // You can add more assertions as needed to check the retrieved customers.
     }
+
 }

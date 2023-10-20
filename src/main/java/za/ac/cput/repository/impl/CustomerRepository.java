@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /*
 =======
 package za.ac.cput.repository.impl;/*
