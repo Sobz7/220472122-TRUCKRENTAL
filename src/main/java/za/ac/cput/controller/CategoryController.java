@@ -8,6 +8,7 @@ import za.ac.cput.service.CategoryService;
 
 import java.util.Set;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/category")
 public class CategoryController {
@@ -18,19 +19,23 @@ public class CategoryController {
     Category create(@RequestBody Category category){return categoryService.save(category);}
 
     @GetMapping("/read/{id}")
-    public Category read(@PathVariable String id)
+    public Category read(@PathVariable Long id)
     {
         return categoryService.getById(id);
     }
 
-    @PostMapping("/update")
-    public Category update (@RequestBody Category category)
+    @PostMapping("/update/{id}")
+    public Category update (@PathVariable Long id, @RequestBody Category category)
     {
-        return categoryService.update(category);
+        Category updateCategory = categoryService.update(id, category);
+        if (updateCategory == null){
+            return null;
+        }
+        return categoryService.save(updateCategory);
     }
 
     @DeleteMapping("/delete/{id}")
-    public boolean delete (@PathVariable String id) {categoryService.deleteByID(id);
+    public boolean delete (@PathVariable Long id) {categoryService.deleteByID(id);
         return true;
     }
 

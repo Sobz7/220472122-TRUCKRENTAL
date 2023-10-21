@@ -15,8 +15,26 @@ public class CategoryService {
     public CategoryService(CategoryRepository categoryRepository){this.categoryRepository = categoryRepository;}
 
     public Category save(Category category){return categoryRepository.save(category);}
-    public Category getById(String id){return categoryRepository.findById(id).orElse(null);}
-    public Category update(Category updateCategory){return categoryRepository.save(updateCategory);}
-    public void deleteByID(String id){categoryRepository.deleteById(id);}
+    public Category getById(Long id){return categoryRepository.findById(id).orElse(null);}
+    public Category update(Long id, Category updateCategory){
+        Category categoryExisting = categoryRepository.findById(id).orElse(null);
+
+        if (categoryExisting == null) {
+            return null;
+        }
+
+        if (updateCategory.getDescription() != null) {
+            categoryExisting.setDescription(updateCategory.getDescription());
+        }
+        if (updateCategory.getTruckType() != null){
+            categoryExisting.setTruckType(updateCategory.getTruckType());
+        }
+        if (updateCategory.getTruckSize() > 0) {
+            categoryExisting.setTruckSize(updateCategory.getTruckSize());
+        }
+
+        return categoryRepository.save(categoryExisting);}
+    public void deleteByID(Long id){
+        categoryRepository.deleteById(id);}
     public Set<Category> getAll(){return new HashSet<>(categoryRepository.findAll());}
 }

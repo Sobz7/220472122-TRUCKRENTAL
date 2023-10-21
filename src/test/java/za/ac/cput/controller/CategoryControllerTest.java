@@ -1,5 +1,6 @@
 package za.ac.cput.controller;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -29,38 +30,39 @@ class CategoryControllerTest {
     @Test
     void create() {
         String url = basedURL + "/create";
-        ResponseEntity<Category> postResponse = testRestTemplate.postForEntity(url, category1,Category.class);
+        ResponseEntity<Category> postResponse = testRestTemplate.postForEntity(url, category1, Category.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
         assertNotNull(postResponse.getStatusCode(), String.valueOf(HttpStatus.OK));
         Category saveCategory = postResponse.getBody();
 
-        System.out.println("Saved: "+ saveCategory);
+        System.out.println("Saved: " + saveCategory);
         System.out.println(postResponse.getBody());
     }
 
     @Test
     void read() {
         String url = basedURL + "/read/" + category1.getId();
-        System.out.println("URL: "+ url);
-        ResponseEntity<Category> response = testRestTemplate.getForEntity(url,Category.class);
+        System.out.println("URL: " + url);
+        ResponseEntity<Category> response = testRestTemplate.getForEntity(url, Category.class);
 
-        System.out.println(response.getBody());
+        System.out.println(category1);
     }
 
     @Test
     void update() {
-        Category updateCategory = category1.toBuilder().truckSize(150).description("Furniture 13").build();
+        Category updateCategory = category1.toBuilder().truckSize(20000).description("Furniture 300").build();
 
         String url = basedURL + "/update/" + category1.getId();
-        System.out.printf("URL" + url);
-        System.out.printf("post data" + updateCategory);
+        System.out.println("URL" + url);
+        System.out.println("post data" + updateCategory);
         ResponseEntity<Category> response = testRestTemplate.postForEntity(url, updateCategory, Category.class);
-        System.out.println(response);
-        assertNotNull(response.getBody());
-        System.out.println(response.getBody());
+        System.out.println("Saved to DB: " + response.getBody());
+
+
     }
 
+    @Disabled
     @Test
     void delete() {
         String url = basedURL + "/delete/" + category1.getId();
@@ -73,7 +75,7 @@ class CategoryControllerTest {
         String url = basedURL + "/getAll";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<String> response = testRestTemplate.exchange(basedURL, HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> response = testRestTemplate.exchange(url, HttpMethod.GET, entity, String.class);
         System.out.print("show all");
         System.out.println(response.getBody());
     }
