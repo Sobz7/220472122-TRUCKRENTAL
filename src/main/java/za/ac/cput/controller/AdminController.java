@@ -7,7 +7,7 @@ import za.ac.cput.factory.AdminFactory;
 import za.ac.cput.service.impl.AdminServiceImpl;
 import java.util.Set;
 
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:3000")
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
