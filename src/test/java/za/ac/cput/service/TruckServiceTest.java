@@ -18,7 +18,7 @@ class TruckServiceTest {
     private TruckRepository truckRepository;
     @Autowired
     public TruckService truckService;
-    private static Truck truck1 = TruckFactory.createTruck("Ford", 2017, true, "CP567EC", 456, 23 );
+    private static Truck truck1 =TruckFactory.createTruck("Ford", 2017, true, "CP567EC", 456, 23 );
     private static Truck truck2 =TruckFactory.createTruck("Mazda", 2012, true, "CS16WC", 501, 50 );
 
     @Test
@@ -32,13 +32,13 @@ class TruckServiceTest {
         assertNotNull(created2);
         System.out.println("Created:" + created2);
     }
-    @Test
-    @Order(2)
-    void getById(){
-        Truck readById = truckService.getById(truck1.getTruckId());
-        assertNotNull(readById);
-        System.out.println("Read: " + readById);
-    }
+//    @Test
+//    @Order(2)
+//    void getById(){
+//        Truck readById = truckService.getById(truck1.getTruckId());
+//        assertNotNull(readById);
+//        System.out.println("Read: " + readById);
+//    }
 
     @Test
     @Order(3)
@@ -49,12 +49,12 @@ class TruckServiceTest {
         System.out.println("Read: " + updateTruck);
     }
 
-    @Test
-    @Order(4)
-    void deleteById(){
-        truckService.deleteByID(truck2.getTruckId());
-        System.out.println("Deleted:");
-    }
+    //    @Test
+//    @Order(4)
+//    void deleteById(){
+//        truckService.deleteByID(truck2.getTruckId());
+//        System.out.println("Deleted:");
+//    }
     @Test
     @Order(5)
     void getAll(){

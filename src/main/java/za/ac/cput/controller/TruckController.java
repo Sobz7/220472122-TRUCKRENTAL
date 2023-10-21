@@ -9,6 +9,7 @@ import za.ac.cput.service.TruckService;
 
 import java.util.Set;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/truck")
 public class TruckController {
@@ -20,17 +21,21 @@ public class TruckController {
     Truck create(@RequestBody Truck truck){return truckService.save(truck);}
 
     @GetMapping("/read/{id}")
-    public Truck read(@PathVariable String id)
+    public Truck read(@PathVariable Long id)
     {
         return truckService.getById(id);
     }
-    @PostMapping("/update")
-    public Truck update (@RequestBody Truck truck)
+    @PostMapping("/update/{id}")
+    public Truck update (@PathVariable Long id, @RequestBody Truck truck)
     {
-        return truckService.update(truck);
+        Truck trucUpdate = truckService.update(id, truck);
+        if (trucUpdate == null) {
+            return null;
+        }
+        return truckService.save(trucUpdate);
     }
     @DeleteMapping("/delete/{id}")
-    public boolean delete (@PathVariable String id) {truckService.deleteByID(id);
+    public boolean delete (@PathVariable Long id) {truckService.deleteByID(id);
         return true;
     }
     @GetMapping("/getAll")
