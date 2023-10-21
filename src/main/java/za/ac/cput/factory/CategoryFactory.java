@@ -7,7 +7,7 @@ public class CategoryFactory {
     public static Category createCategory (String description, int truckSize, String truckType) {
         if (Helper.isNullorEmpty(description)|| Helper.isNullorEmpty(truckType))
             return null;
-        String categoryId = Helper.generateId();
+        Long categoryId = Helper.generaterandomId();
         return Category.builder()
                 .id(categoryId)
                 .description(description)
