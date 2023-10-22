@@ -9,7 +9,7 @@ import za.ac.cput.service.TruckService;
 
 import java.util.Set;
 
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:3000")
 @RestController
 @RequestMapping("/truck")
 public class TruckController {

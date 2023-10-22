@@ -8,7 +8,7 @@ import za.ac.cput.service.CategoryService;
 
 import java.util.Set;
 
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:3000")
 @RestController
 @RequestMapping("/category")
 public class CategoryController {
