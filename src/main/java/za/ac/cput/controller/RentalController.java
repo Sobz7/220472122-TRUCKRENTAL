@@ -2,11 +2,11 @@ package za.ac.cput.controller;
 
 //import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import za.ac.cput.TruckRental.domain.Rental;
-import za.ac.cput.TruckRental.exception.ResourceNotFoundException;
-import za.ac.cput.TruckRental.repository.IRentalRepository;
+import za.ac.cput.domain.Rental;
+import za.ac.cput.repository.IRentalRepository;
 
 import java.lang.module.ResolutionException;
 import java.util.List;

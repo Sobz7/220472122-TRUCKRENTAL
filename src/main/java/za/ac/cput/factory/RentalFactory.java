@@ -5,8 +5,8 @@
 package za.ac.cput.factory;
 
 
-import za.ac.cput.TruckRental.domain.Rental;
-import za.ac.cput.TruckRental.util.Helper;
+import za.ac.cput.domain.Rental;
+import za.ac.cput.util.Helper;
 
 import java.time.LocalDate;
 
